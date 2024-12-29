@@ -5,7 +5,7 @@ Feature: Realizar compras en la Tienda
   Scenario: Registrar un Usuario
     Given Ingreso a la Wed de la Tienda
     When presiono el boton SignUp
-    And ingreso el username "Comprador300"
+    And ingreso el username "Comprador800"
     And ingreso el password "Prueba2023"
     And presiono el boton Registrar
     Then Se muestra un mensaje de confirmacion "Sign up successful."

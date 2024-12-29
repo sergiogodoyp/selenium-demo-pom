@@ -70,4 +70,8 @@ public class BasePage {
         return wait.until(ExpectedConditions.alertIsPresent());
     }
 
+    public void navegarA(String url) {
+    driver.get(url);
+    }
+
 }

@@ -15,7 +15,7 @@ public class PaginaRegistro extends BasePage {
     private By botonRegistrar = By.cssSelector("button[onclick=\"register()\"]");
 
     public void cargarPaginaInicio(){
-        driver.get("https://www.demoblaze.com/index.html");
+        navegarA("https://www.demoblaze.com/index.html");
     }
 
     public void ingresarNombreUsuario(String username) {
