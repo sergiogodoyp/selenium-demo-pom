@@ -4,17 +4,17 @@ pipeline {
     stages {
         stage('Compilar') {
             steps {
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
         stage('Probar') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
         stage('Generar reportes') {
             steps {
-                sh 'mvn allure:serve'
+                bat 'mvn allure:serve'
             }
         }
     }
