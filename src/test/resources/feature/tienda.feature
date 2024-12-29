@@ -1,42 +1,42 @@
-
+@Prueba
 Feature: Realizar compras en la Tienda
+  
+  Background:
+    Given Ingreso a la tienda online
 
-  @Prueba
+  @Registro
   Scenario: Registrar un Usuario
-    Given Ingreso a la Wed de la Tienda
-    When presiono el boton SignUp
-    And ingreso el username "Comprador1000"
-    And ingreso el password "Prueba2023"
-    And presiono el boton Registrar
-    Then Se muestra un mensaje de confirmacion "Sign up successful."
+    When hago clic en el enlace Registrarse
+    And completo el formulario de registro con "Comprador1004" y "Prueba2023"
+    And hago clic en el boton Registrarse
+    Then se muestra un mensaje de confirmacion "Sign up successful."
 
-  @Prueba
+  @InicioDeSesion
   Scenario Outline:Iniciar Sesion en la Web
-    Given Ingreso a la Wed de la Tienda
-    When presiono el boton Login
-    And escribo el username "Comprador35"
-    And escribo el password "Prueba2023"
-    And presiono el boton Iniciar Sesion
-    Then se muestra un mensaje de bienvenida "Welcome Comprador35"
+    When hago clic en el enlace Iniciar Sesion
+    And completo el formulario de inicio de sesion con "<username>" y "<password>"
+    And hago clic en el boton Iniciar Sesion
+    Then se muestra un mensaje de bienvenida "Welcome <username>"
 
-  @Prueba
+    Examples:
+      | username    | password   |
+      | Comprador35 | Prueba2023 |
+      | Comprador900| Prueba2023 |
+
+  @CierreDeSesion
   Scenario:Cerrar Sesion en la Web
-    Given Ingreso a la Wed de la Tienda
-    When presiono el boton Login
-    And escribo el username "Comprador35"
-    And escribo el password "Prueba2023"
-    And presiono el boton Iniciar Sesion
-    And presiono el boton Logout
+    When hago clic en el enlace Iniciar Sesion
+    And completo el formulario de inicio de sesion con "Comprador35" y "Prueba2023"
+    And hago clic en el boton Iniciar Sesion
+    And hago clic en el enlace Cerrar Sesion
     Then se muestra la pagina principal
 
-  @Prueba
+  @AgregarAlCarrito
   Scenario:Agregar laptop al carro de compras
-    Given Ingreso a la Wed de la Tienda
-    When presiono el boton Login
-    And escribo el username "Comprador35"
-    And escribo el password "Prueba2023"
-    And presiono el boton Iniciar Sesion
+    When hago clic en el enlace Iniciar Sesion
+    And completo el formulario de inicio de sesion con "Comprador35" y "Prueba2023"
+    And hago clic en el boton Iniciar Sesion
     And selecciono la categoria "Laptops"
     And selecciono el Producto "MacBook air"
-    And presiono el boton Add to cart
-    Then Se muestra un mensaje de confirmacion "Product added."
+    And hago clic en el boton Agregar al carrito
+    Then se muestra un mensaje de confirmacion "Product added."

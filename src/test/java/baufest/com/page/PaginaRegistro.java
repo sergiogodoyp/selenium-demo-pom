@@ -26,7 +26,6 @@ public class PaginaRegistro extends BasePage {
     public void ingresarContrasena(String password){
         escribirTexto(password,campoContrasena);
     }
-
     public void hacerClicEnRegistrar(){
         hacerClic(botonRegistrar);
     }

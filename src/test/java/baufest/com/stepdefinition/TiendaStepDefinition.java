@@ -11,10 +11,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import org.junit.Assert;
-
-
 import org.openqa.selenium.WebDriver;
 
 public class TiendaStepDefinition {
@@ -38,63 +35,55 @@ public class TiendaStepDefinition {
         DriverManager.quitDriver();
     }
 
-    @Given("Ingreso a la Wed de la Tienda")
-    public void ingresoALaWedDeLaTienda() {
+    @Given("Ingreso a la tienda online")
+    public void ingresoALaTiendaOnline() {
         paginaRegistro.cargarPaginaInicio();
     }
 
-    @When("presiono el boton SignUp")
-    public void presionoElBotonSignUp() {
+    @When("hago clic en el enlace Registrarse")
+    public void hagoClicEnElEnlaceRegistrarse() {
         paginaInicio.hacerClicEnRegistrarse();
     }
 
-    @And("ingreso el username {string}")
-    public void ingresoElUsername(String username) {
+    @And("completo el formulario de registro con {string} y {string}")
+    public void completoElFormularioDeRegistroConY(String username, String password) {
         paginaRegistro.ingresarNombreUsuario(username);
-    }
-
-    @And("ingreso el password {string}")
-    public void ingresoElPassword(String password) {
         paginaRegistro.ingresarContrasena(password);
     }
 
-    @And("presiono el boton Registrar")
+    @And("hago clic en el boton Registrarse")
     public void presionoElBotonRegistrar() {
         paginaRegistro.hacerClicEnRegistrar();
     }
 
-    @Then("Se muestra un mensaje de confirmacion {string}")
+    @Then("se muestra un mensaje de confirmacion {string}")
     public void seMuestraUnMensajeDeConfirmacion(String mensaje)  {
         Assert.assertEquals(paginaRegistro.obtenerMensajeDeAlerta(),mensaje);
     }
 
-    @When("presiono el boton Login")
-    public void presionoElBotonLogin() {
+    @When("hago clic en el enlace Iniciar Sesion")
+    public void hagoClicEnElEnlaceIniciar() {
         paginaInicio.hacerClicEnIniciarSesion();
     }
 
-    @And("escribo el username {string}")
-    public void escriboElUsername(String username)  {
+    @And("completo el formulario de inicio de sesion con {string} y {string}")
+    public void completoElFormularioDeInicioDeSesionConY(String username, String password) {
         paginaLogin.ingresarNombreUsuario(username);
-    }
-
-    @And("escribo el password {string}")
-    public void escriboElPassword(String password) {
         paginaLogin.ingresarContrasena(password);
     }
 
     @Then("se muestra un mensaje de bienvenida {string}")
-    public void seMuestraUnMensajeDeBienvenida(String message)  {
-        Assert.assertEquals(paginaInicio.obtenerMensajeBienvenida(),message);
+    public void seMuestraUnMensajeDeBienvenida(String mensaje)  {
+        Assert.assertEquals(paginaInicio.obtenerMensajeBienvenida(),mensaje);
     }
 
-    @And("presiono el boton Iniciar Sesion")
-    public void presionoElBotonloginPage() {
+    @And("hago clic en el boton Iniciar Sesion")
+    public void hagoClicEnELBotonInciarSesion() {
         paginaLogin.hacerClicEnIniciarSesion();
     }
 
-    @And("presiono el boton Logout")
-    public void presionoElBotonLogout() {
+    @And("hago clic en el enlace Cerrar Sesion")
+    public void hagoClicEnELEnlaceCerrarSession() {
         paginaInicio.hacerClicEnCerrarSesion();
     }
 
@@ -113,9 +102,8 @@ public class TiendaStepDefinition {
         paginaInicio.seleccionarProducto(opcion);
     }
 
-    @And("presiono el boton Add to cart")
-    public void presionoElBotonAddToCart() {
+    @And("hago clic en el boton Agregar al carrito")
+    public void hagoClicEnElBotonAgregarAlCarrito() {
         paginaProducto.hacerClicEnAgregarAlCarrito();
     }
-
 }
