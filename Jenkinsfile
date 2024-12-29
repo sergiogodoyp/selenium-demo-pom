@@ -12,10 +12,11 @@ pipeline {
                 bat 'mvn test'
             }
         }
-        stage('Generar reportes') {
-            steps {
-                bat 'mvn allure:serve'
-            }
-        }
+//         stage('Generar reportes') {
+//             steps {
+//                 bat 'mvn allure:serve'
+//             }
+//         }
+
     }
 }
