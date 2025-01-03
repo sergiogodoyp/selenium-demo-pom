@@ -1,0 +1,28 @@
+name: Tienda Online Pruebas
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Maven
+        uses: actions/setup-maven@v1
+        with:
+          java-version: '17'
+
+      - name: Build y ejecutar pruebas
+        run: |
+          mvn clean test
+
+      - name: Reportar resultados
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: target/surefire-reports
