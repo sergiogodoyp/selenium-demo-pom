@@ -7,7 +7,7 @@ Feature: Realizar compras en la Tienda
   @Registro
   Scenario: Registrar un Usuario
     When hago clic en el enlace Registrarse
-    And completo el formulario de registro con "Comprador1006" y "Prueba2023"
+    And completo el formulario de registro con "Comprador1007" y "Prueba2023"
     And hago clic en el boton Registrarse
     Then se muestra un mensaje de confirmacion "Sign up successful."
 
