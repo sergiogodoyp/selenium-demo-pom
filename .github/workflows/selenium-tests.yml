@@ -3,7 +3,7 @@ name: Tienda Online Pruebas
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-and-test:
