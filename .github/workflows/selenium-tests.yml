@@ -16,15 +16,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Instalar Chrome y configurar entorno
-        run: |
-          # Descargar e instalar Google Chrome
-          choco install googlechrome --version=latest -y
-          choco install chromedriver --version=latest -y
-          # Verificar las versiones instaladas
-          google-chrome --version
-          chromedriver --version
-
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
